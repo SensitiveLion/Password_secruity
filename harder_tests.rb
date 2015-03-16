@@ -1,5 +1,5 @@
 class HarderTests < CommonTests
-  def date?
+  def last_not_date?
     number = @password.split(//).last(2)
     if number.join.to_i >= 10
       return false
@@ -11,9 +11,9 @@ class HarderTests < CommonTests
     true
   end
 
-  def fist_capital?
+  def first_not_capital?
     letter = @password.split(//).first
-    [/[A-Z]*/].include?(letter)
+    letter == letter.downcase
   end
 
 end

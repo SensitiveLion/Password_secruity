@@ -3,7 +3,8 @@ require "pry"
 require_relative "common_tests"
 require_relative "harder_tests"
 require_relative "common_passwords"
-require_relative "password_test"
+require_relative "testing"
+require_relative "password_summary"
 
 puts <<-summary
 
@@ -25,13 +26,13 @@ end
 
 
 
-evaluate = PasswordTest.new(get_password)
-binding.pry
+evaluate = PasswordSummary.new(get_password)
+# binding.pry
 puts evaluate.summary
 
 
 
 while evaluate.security? == false
-  evaluate = PasswordTest.new(get_password)
+  evaluate = PasswordSummary.new(get_password)
   puts evaluate.summary
 end

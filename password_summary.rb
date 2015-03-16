@@ -1,6 +1,6 @@
 require "pry"
 
-class PasswordTest < CommonPasswords
+class PasswordSummary < Testing
 
 
   def initialize(password)
@@ -11,49 +11,42 @@ class PasswordTest < CommonPasswords
     @password
   end
 
-  def security?
-    common_name? &&
-    ascii? &&
-    short? == false &&
-    special_chars? >= 2 &&
-    uppercase? >= 2 &&
-    lowercase? >= 2 &&
-    numbers? >= 2 &&
-    date?
-  end
-
   def summary
     unless security?
-      if common_name? == false
+      unless common_name?
         return "The password you had matched at least one of the 10,000 most common passwords"
       end
 
-      if ascii? == false
+      unless ascii?
         return "Only use characters from your keyboard"
       end
 
-      if short?
+      unless long_enough?
         return "Your password needs to be at least ten characters long"
       end
 
-      if special_chars? < 2
+      unless enough_special_chars?
         return "You need to have at least two special characters (:,*,$...) or spaces in your password"
       end
 
-      if uppercase? < 2
+      unless enough_uppercase?
         return "You need to have at least two uppercase characters in your password"
       end
 
-      if lowercase? < 2
+      unless enough_lowercase?
         return "You need to have at least two lowercase characters in your password"
       end
 
-      if numbers? < 2
+      unless enough_numbers?
         return "You need to have at least two numbers in your password"
       end
 
-      if date? == false
+      unless last_not_date?
         return "You can't use numbers  as the last two characters in your password"
+      end
+
+      unless first_not_capital?
+        return "You can't use a capital letter as your first character"
       end
     end
     return "Good job. Your password is reasonably secure"
