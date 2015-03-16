@@ -1,6 +1,7 @@
 require "pry"
 
 require_relative "common_tests"
+require_relative "harder_tests"
 require_relative "common_passwords"
 require_relative "password_test"
 
@@ -18,10 +19,19 @@ Your password should:
 - Not have numbers as the last two digits
 
     summary
+def get_password
+  password = gets.chomp
+end
 
-password = gets.chomp
-
-evaluate = PasswordTest.new(password)
 
 
+evaluate = PasswordTest.new(get_password)
+binding.pry
 puts evaluate.summary
+
+
+
+while evaluate.security? == false
+  evaluate = PasswordTest.new(get_password)
+  puts evaluate.summary
+end

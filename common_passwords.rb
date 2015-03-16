@@ -1,6 +1,6 @@
 require 'pry'
 require "pg"
-class CommonPasswords < CommonTests
+class CommonPasswords < HarderTests
 
   def get_common
     db_connection do |conn|

@@ -12,24 +12,14 @@ class PasswordTest < CommonPasswords
   end
 
   def security?
-    if common_name?
-      if ascii?
-        if short? == false
-          if special_chars? >= 2
-            if uppercase? >= 2
-              if lowercase? >= 2
-                if numbers? >= 2
-                  if date?
-                    return true
-                  end
-                end
-              end
-            end
-          end
-        end
-      end
-    end
-    false
+    common_name? &&
+    ascii? &&
+    short? == false &&
+    special_chars? >= 2 &&
+    uppercase? >= 2 &&
+    lowercase? >= 2 &&
+    numbers? >= 2 &&
+    date?
   end
 
   def summary
