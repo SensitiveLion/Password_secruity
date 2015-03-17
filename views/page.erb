@@ -29,10 +29,12 @@
       </div>
     </div>
     <div class="row">
-      <div class="small-4 small-centered columns">
-        <h2>
-          <% Password
-        </h2>
+      <div class="small-10 small-centered columns">
+        <h3>
+          <% unless session[:check] == nil %>
+            <%= session[:check].summary %>
+          <% end %>
+        </h3>
       </div>
     </div>
   </li>
