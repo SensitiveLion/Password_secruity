@@ -18,7 +18,7 @@ class CommonPasswords < HarderTests
         count +=1
       end
     end
-    if count >1
+    if count > 1
       return false
     end
     true

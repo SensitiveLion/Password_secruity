@@ -25,24 +25,24 @@ class PasswordSummary < Testing
         return "Your password needs to be at least ten characters long"
       end
 
-      unless enough_special_chars?
-        return "You need to have at least two special characters (:,*,$...) or spaces in your password"
+      unless special_chars?
+        return "You need to have a special character (:,*,$...) or spaces in your password"
       end
 
-      unless enough_uppercase?
-        return "You need to have at least two uppercase characters in your password"
+      unless uppercase?
+        return "You need to have a uppercase character in your password"
       end
 
-      unless enough_lowercase?
-        return "You need to have at least two lowercase characters in your password"
+      unless lowercase?
+        return "You need to have a lowercase character in your password"
       end
 
-      unless enough_numbers?
-        return "You need to have at least two numbers in your password"
+      unless numbers?
+        return "You need to have a number in your password"
       end
 
       unless last_not_date?
-        return "You can't use numbers  as the last two characters in your password"
+        return "You can't use numbers as the last two characters in your password"
       end
 
       unless first_not_capital?

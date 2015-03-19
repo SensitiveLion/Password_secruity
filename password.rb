@@ -5,6 +5,7 @@ require_relative "harder_tests"
 require_relative "common_passwords"
 require_relative "testing"
 require_relative "password_summary"
+require_relative "password_generation"
 
 puts <<-summary
 
@@ -20,19 +21,20 @@ Your password should:
 - Not have numbers as the last two digits
 
     summary
-def get_password
+
+
+
   password = gets.chomp
-end
 
-
-
-evaluate = PasswordSummary.new(get_password)
-# binding.pry
-puts evaluate.summary
-
-
-
-while evaluate.security? == false
+unless password == "Random"
   evaluate = PasswordSummary.new(get_password)
+
   puts evaluate.summary
+
+  while evaluate.security? == false
+    evaluate = PasswordSummary.new(get_password)
+    puts evaluate.summary
+  end
 end
+
+puts Generate.secure

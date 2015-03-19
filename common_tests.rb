@@ -8,29 +8,43 @@ class CommonTests
     @password.length >= 10
   end
 
-  def special_chars
+  def special_chars?
     count = 0
     @password.split(//).each do |letter|
-      if ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "-", "=", "<", ">", '?', ":", "\"", "{", "}", "|", "\\", "]", "[", "'", ";", "/", ".", ",", "=", "-", "`", "~", " "].include?(letter)
+      if ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+",
+          "-", "=", "<", ">", '?', ":", "\"", "{", "}", "|", "\\", "]",
+          "[", "'", ";", "/", ".", ",", "=", "-", "`", "~", " "].include?(letter)
         count +=1
       end
     end
-    return count
+   if count >= 1
+     return true
+   end
+   false
   end
 
-  def uppercase
+  def uppercase?
     matches = @password.gsub(/[^A-Z]*/,"")
-    return matches.size
+    if matches.size >= 1
+      return true
+    end
+    false
   end
 
-  def lowercase
+  def lowercase?
     matches = @password.gsub(/[^a-z]*/,"")
-    return matches.size
+    if matches.size >= 1
+      return true
+    end
+    false
   end
 
-  def numbers
+  def numbers?
     matches = @password.gsub(/[^0-9]*/,"")
-    return matches.size
+    if matches.size >= 1
+      return true
+    end
+    false
   end
 
 end
