@@ -34,10 +34,33 @@
       <div class="small-10 small-centered columns">
         <h3>
           <% unless session[:check] == nil %>
+            <%= session[:check].password %>
+            <br>
             <%= session[:check].summary %>
           <% end %>
         </h3>
       </div>
     </div>
+    <div calss="row">
+      <div class="small-10 small-centered columns">
+        <h2>Generate Random Passowrd:</h2>
+        <h3>
+          <% unless session[:generate] == nil %>
+            <%= session[:generate] %>
+          <% end %>
+        </h3>
+          <form action='/generate' method='POST'>
+             <button type='submit'>Generate</button>
+          </form>
+      </div>
+    </div>
   </li>
+</ul>
+<div class="row">
+  <div class="small-10 small-centered columns">
+    <form action='/reset' method='POST'>
+      <button type='submit'>Reset Cookies</button>
+    </form>
+  </div>
+</div
 
