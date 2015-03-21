@@ -8,7 +8,8 @@ require_relative "testing"
 require_relative "password_summary"
 require_relative "password_generation"
 
-use Rack::Session::Cookie
+use Rack::Session::Cookie, :secret => 'change_me',
+                           :expire_after => 600
 
 @random = nil
 @check_password = nil
