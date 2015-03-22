@@ -20,13 +20,17 @@ Your password should:
 
 - Not have numbers as the last two digits
 
+Input random to generate a random password or test to test a pasword
+
     summary
 
+input = gets.chomp
 
+if input == "test"
+  def get_password
+    password = gets.chomp
+  end
 
-  password = gets.chomp
-
-unless password == "Random"
   evaluate = PasswordSummary.new(get_password)
 
   puts evaluate.summary
@@ -35,6 +39,12 @@ unless password == "Random"
     evaluate = PasswordSummary.new(get_password)
     puts evaluate.summary
   end
+
+elsif input == "random"
+  puts Generate.secure
+
+else
+  puts "nice try. next time put only either test or random"
 end
 
-puts Generate.secure
+
