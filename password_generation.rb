@@ -15,7 +15,7 @@ class Generate < PasswordSummary
   end
 
   def self.random_uppercase
-     upper = ('a'..'z').to_a[rand(26)]
+     upper = ('A'..'Z').to_a[rand(26)]
 
      return upper
   end
@@ -29,10 +29,10 @@ class Generate < PasswordSummary
   def self.random_string(num)
     random = []
 
-    random << Generate.random_symbol
-    random << Generate.random_lowercase
-    random << Generate.random_uppercase
-    random << Generate.random_number
+    random << random_symbol
+    random << random_lowercase
+    random << random_uppercase
+    random << random_number
 
     num.times do
       rand = rand(4)
@@ -53,13 +53,14 @@ class Generate < PasswordSummary
     random.shuffle
 
     return random.join
+    binding.pry
   end
 
   def self.secure
-    maybe_good = Generate.random_string(11)
+    maybe_good = Generate.random_string(6)
     random_pass = PasswordSummary.new(maybe_good)
     unless random_pass.security?
-      maybe_good = Generate.random_string(11)
+      maybe_good = Generate.random_string(6)
     end
     return maybe_good
   end
