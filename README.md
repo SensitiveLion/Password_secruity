@@ -18,3 +18,4 @@ or
 $ password.rb
 ```
 to run it in the command line
+# passecure
