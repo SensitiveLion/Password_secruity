@@ -12,7 +12,7 @@ class PasswordSummary < Testing
   end
 
   def summary
-    if phrase_security? || security? == true
+    unless phrase_security? || security?
       if phrase_security? == false
         unless phrase_long_enough?
           return "Your passphrase needs to be at least 20 characters long"
