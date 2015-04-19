@@ -1,8 +1,4 @@
-require "pry"
-
 class PasswordSummary < Testing
-
-
   def initialize(password)
     @password = password
   end

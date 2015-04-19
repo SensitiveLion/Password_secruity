@@ -1,27 +1,46 @@
-
+<div class="title">
+  <div class="panel">
+    <h1>Passecure</h1>
+  </div>
+</div>
 <ul class="large-block-grid-2">
   <li>
-    <div class="row">
-      <div class="small-10 small-centered columns">
-        <h2>Check if your password is secure.</h2>
-        <br>
-        <h3>Your password should:</h3>
-        <br>
-        <h3>
+    <div class="panel">
+      <h2>Check if your password is secure.</h2>
+      <ul>
+        <li><h3>Your password should:</h3></li>
+        <li>
         - include a number, uppercase letter,
-        lowercase letter, and specail character
-        </h3>
-        <br>
-        <h3>- Not be one of the most commenly used commonly used</h3>
-        <br>
-        <h3>- Not have numbers as the last two digits</h3>
-        <br>
-        <h3>- Not have a capital letter as the first character</h3>
-      </div>
+        lowercase letter, and special character
+        </li>
+        <li>- Not be one of the most commenly used commonly used</li>
+        <li>- Not have numbers as the last two digits</li>
+        <li>- Not have a capital letter as the first character</li>
+      </ul>
+      <h4>OR</h4>
+      <ul>
+        <li><h3>Your passphrase should:</h3></li>
+        <li>- Be at least a 20 character long phrase of words</li>
+        <li>- Have at least one uppercase and one lowercase letter</li>
+      </ul>
+      <p></p>
+      <div class="small-10 small-centered columns">
+        <h2>Generate Random Password:</h2>
+        <form action='/generate' method='POST'>
+          <button type='submit' href="#" class="button round">Generate</button>
+        </form>
+        <div class="small-10 small-centered columns">
+          <% if session[:generate].nil? %>
+            <p></p>
+          <% else %>
+            <p id="generated">Your password: <%= session[:generate] %></p>
+          <% end %>
+        </div>
     </div>
   </li>
   <li>
     <ul class="large-block-grid-2">
+    <div class="panel">
       <div class="row">
         <div class="small-8 small-centered columns">
           <h2>Password:</h2>
@@ -33,12 +52,12 @@
       </div>
       <div class="row">
         <div class="small-10 small-centered columns">
-            <% if session[:check].nil? %>
-              <br><br><br><br>
-            <% else %>
-              <h3>Your passowrd: <%= session[:check].password %></h3>
-              <h3><%= session[:check].summary %></h3>
-            <% end %>
+          <% if session[:check].nil? %>
+            <br><br><br><br>
+          <% else %>
+            <li>Your password: <%= session[:check].password %></li>
+            <li><%= session[:check].summary %></li>
+          <% end %>
         </div>
       </div>
       <div class="row">
@@ -52,27 +71,12 @@
       </div>
       <div class="row">
         <div class="small-10 small-centered columns">
-            <% if session[:check_phrase].nil? %>
-              <br><br><br><br>
-            <% else %>
-              <h3>Your passowrd: <%= session[:check_phrase].password %></h3>
-              <h3><%= session[:check_phrase].summary %></h3>
-            <% end %>
-        </div>
-      </div>
-      <div calss="row">
-        <div class="small-10 small-centered columns">
-          <h2>Generate Random Passowrd:</h2>
-          <form action='/generate' method='POST'>
-            <button type='submit' href="#" class="button round">Generate</button>
-          </form>
-          <h3>
-            <% if session[:generate].nil? %>
-              <br><br><br>
-            <% else %>
-              <%= session[:generate] %>
-            <% end %>
-          </h3>
+          <% if session[:check_phrase].nil? %>
+            <br><br><br><br>
+          <% else %>
+            <li>Your passphrase: <%= session[:check_phrase].password %></li>
+            <li><%= session[:check_phrase].summary %></li>
+          <% end %>
         </div>
       </div>
     </ul>

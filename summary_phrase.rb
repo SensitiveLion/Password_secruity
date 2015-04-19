@@ -1,7 +1,4 @@
-require "pry"
-
 class PhraseSummary < PhraseTesting
-
 
   def initialize(password)
     @password = password
