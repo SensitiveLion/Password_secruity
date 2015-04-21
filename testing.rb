@@ -1,11 +1,4 @@
-class Testing < Phrases
-  def phrase_security?
-    phrase_long_enough? &&
-    spaces? &&
-    uppercase? &&
-    lowercase?
-  end
-
+class Testing < CommonPasswords
   def security?
     common_name? &&
     ascii? &&
