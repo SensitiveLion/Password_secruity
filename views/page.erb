@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-<div class="row">
-  <div class="small-8 large-centered column">
-    <h1 class="head">Passecure</h1>
-=======
 <div class="title">
   <div class="panel">
     <h1>Passecure</h1>
->>>>>>> 4cd42d691944ba03f5dd6ac1b4219f28a5583ad3
   </div>
 </div>
 <ul class="large-block-grid-2">
@@ -32,9 +26,6 @@
       <p></p>
       <div class="small-10 small-centered columns">
         <h2>Generate Random Password:</h2>
-        <form action='/generate' method='POST'>
-          <button type='submit' href="#" class="button round">Generate</button>
-        </form>
         <div class="small-10 small-centered columns">
           <% if session[:generate].nil? %>
             <p></p>
@@ -42,6 +33,27 @@
             <p id="generated">Your password: <%= session[:generate] %></p>
           <% end %>
         </div>
+        <form action='/generate' method='POST'>
+          <h6>Length of generated password</h6>
+          <div class="small-2 small-centered columns">
+            <select name="length" id="length">>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+            </select>
+          </div>
+          <p></p>
+          <button type='submit' href="#" class="button round">Generate</button>
+        </form>
+      </div>
     </div>
   </li>
   <li>

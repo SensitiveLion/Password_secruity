@@ -53,14 +53,13 @@ class Generate < PasswordSummary
     random.shuffle
 
     return random.join
-    binding.pry
   end
 
-  def self.secure
-    maybe_good = Generate.random_string(15)
+  def self.secure(length)
+    maybe_good = Generate.random_string(length)
     random_pass = PasswordSummary.new(maybe_good)
     unless random_pass.security?
-      maybe_good = Generate.random_string(15)
+      maybe_good = Generate.random_string(length)
     end
     return maybe_good
   end

@@ -37,7 +37,8 @@ post '/passphrase' do
 end
 
 post "/generate" do
-  @random = Generate.secure
+  @length = params["length"].to_i
+  @random = Generate.secure(@length)
   session[:generate] = @random
   redirect "/"
 end
