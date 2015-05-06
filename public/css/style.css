@@ -10,13 +10,12 @@ ul{
 
 h2{
 	font-family: 'Oxygen', sans-serif;
-	color: white;
 }
 
 h3{
   font-family: 'Oxygen', sans-serif;
-  color: white;
 }
+
 button, .button {
   font-family: 'Oxygen', sans-serif;
   background-color: #5C0F0F
@@ -25,4 +24,25 @@ button, .button {
 .head {
   font-size: 4em;
   color: white
+
+ul li {
+  font-size: 1.5em;
+}
+
+.panel {
+  background-color: #111111;
+  border-radius: 5px;
+}
+.panel h1, .panel h2, .panel h3, .panel h4, .panel h5,
+.panel h6, .panel p, .panel li, .panel dl {
+  color: #ffffff
+}
+
+.title {
+  font-size: 2em;
+}
+
+.panel #generated {
+  font-size: 1em;
+  color: #ffffff
 }
