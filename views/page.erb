@@ -1,6 +1,7 @@
 <div class="title">
   <div class="panel">
     <h1>Passecure</h1>
+    <h2>Check if your password is secure.</h2>
   </div>
 </div>
 <ul class="large-block-grid-2">
@@ -24,88 +25,85 @@
         <li>- Have at least one uppercase and one lowercase letter</li>
       </ul>
       <p></p>
-      <div class="small-10 small-centered columns">
-        <h2>Generate Random Password:</h2>
-        <div class="small-10 small-centered columns">
-          <% if session[:generate].nil? %>
-            <p></p>
-          <% else %>
-            <p id="generated">Your password: <%= session[:generate] %></p>
-          <% end %>
-        </div>
-        <form action='/generate' method='POST'>
-          <h6>Length of generated password</h6>
-          <div class="small-2 small-centered columns">
-            <select name="length" id="length">>
-              <option value="15">15</option>
-              <option value="16">16</option>
-              <option value="17">17</option>
-              <option value="18">18</option>
-              <option value="19">19</option>
-              <option value="20">20</option>
-              <option value="21">21</option>
-              <option value="22">22</option>
-              <option value="23">23</option>
-              <option value="24">24</option>
-              <option value="25">25</option>
-            </select>
-          </div>
-          <p></p>
-          <button type='submit' href="#" class="button round">Generate</button>
-        </form>
-      </div>
     </div>
   </li>
   <li>
     <ul class="large-block-grid-2">
-    <div class="panel">
-      <div class="row">
-        <div class="small-8 small-centered columns">
-          <h2>Password:</h2>
-          <form action='/password' method='POST'>
-            <input type='Text' name='password' size='' placeholder='Test your password here' >
-            <button type='submit' href="#" class="button round">Check password</button>
-          </form>
+      <div class="panel">
+        <div class="row">
+          <div class="small-6 small-centered columns">
+            <h3>Password:<%unless session[:check].nil? %>
+              <%= session[:check].password %>
+              <% end %></h3>
+            <form action='/password' method='POST'>
+              <input type='Text' name='password' size='' placeholder='Test your password here' >
+              <button type='submit' href="#" class="button round">Check password</button>
+            </form>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="small-10 small-centered columns">
-          <% if session[:check].nil? %>
-            <br><br><br><br>
-          <% else %>
-            <li>Your password: <%= session[:check].password %></li>
-            <li><%= session[:check].summary %></li>
-          <% end %>
+        <div class="row">
+          <div class="small-10 small-centered columns">
+            <% if session[:check].nil? %>
+              <br><br>
+            <% else %>
+              <h5><%= session[:check].summary %></h5>
+            <% end %>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="small-8 small-centered columns">
-          <h2>Pass Phrase:</h2>
-          <form action='/passphrase' method='POST'>
-            <input type='Text' name='passphrase' size='' placeholder='Test your pass phrase here' >
-            <button type='submit' href="#" class="button round">Check pass phrase</button>
-          </form>
+        <div class="row">
+          <div class="small-6 small-centered columns">
+            <h3>Pass Phrase:<%unless session[:check].nil? %>
+              <%= session[:check].password %>
+              <% end %></h3>
+            <form action='/passphrase' method='POST'>
+              <input type='Text' name='passphrase' size='' placeholder='Test your pass phrase here' >
+              <button type='submit' href="#" class="button round">Check pass phrase</button>
+            </form>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="small-10 small-centered columns">
-          <% if session[:check_phrase].nil? %>
-            <br><br><br><br>
-          <% else %>
-            <li>Your passphrase: <%= session[:check_phrase].password %></li>
-            <li><%= session[:check_phrase].summary %></li>
-          <% end %>
+        <div class="row">
+          <div class="small-10 small-centered columns">
+            <% if session[:check_phrase].nil? %>
+              <br><br>
+            <% else %>
+              <h5><%= session[:check_phrase].summary %></h5>
+            <% end %>
+          </div>
         </div>
       </div>
     </ul>
   </li>
 </ul>
-  <div class="row">
+<div class="panel">
     <div class="small-10 small-centered columns">
-      <form action='/reset' method='POST'>
-        <button type='submit' href="#" class="button round">Reset Cookies</button>
+      <h2>Generate Random Password:</h2>
+      <div class="small-10 small-centered columns">
+        <% if session[:generate].nil? %>
+          <p></p>
+        <% else %>
+          <p></p>
+          <h3 id="generated"> <%= session[:generate] %></h3>
+        <% end %>
+      </div>
+      <p></p>
+      <form action='/generate' method='POST' class="demo">
+        <h4>Length of generated password</h4>
+        <div class="small-3 small-centered columns">
+          <select name="length" id="length" class="balck">
+            <% (15..35).each do |num| %>
+              <option value="<%= num %>"><%= num %></option>
+            <% end %>
+          </select>
+        </div>
+        <p></p>
+        <button type='submit' href="#" class="button round">Generate</button>
       </form>
     </div>
   </div>
-
-
+<div class="row">
+  <div class="small-10 small-centered columns">
+    <form action='/reset' method='POST'>
+      <button type='submit' href="#" class="button round">Reset Cookies</button>
+    </form>
+  </div>
+</div>
