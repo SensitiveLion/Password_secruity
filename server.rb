@@ -11,7 +11,7 @@ require_relative "password_generation"
 require_relative "phrase_testing"
 require_relative "summary_phrase"
 
-use Rack::Session::Cookie, :secret => 'change_me',
+use Rack::Session::Cookie, :secret => '_fS895x[9DA7T439305?ow8TKJVEozu,?1r\2Vf',
                            :expire_after => 600
 
 @random = nil
