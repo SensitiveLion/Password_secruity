@@ -18,7 +18,7 @@ class PasswordSummary < Testing
       end
 
       unless long_enough?
-        return "Your password needs to be at least ten characters long"
+        return "Your password needs to be at least fifteen characters long"
       end
 
       unless special_chars?
